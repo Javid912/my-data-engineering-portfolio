@@ -4,3 +4,4 @@
 
 finally I got the oh-my-zsh] theme 'half-life-fpop'
 
+Rancher Desktop is installed (allow max 4 GB memory and 2 CPUs, disable Kubernetes, use container engine moby, allow sudo access)
