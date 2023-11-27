@@ -5,3 +5,7 @@
 finally I got the oh-my-zsh] theme 'half-life-fpop'
 
 Rancher Desktop is installed (allow max 4 GB memory and 2 CPUs, disable Kubernetes, use container engine moby, allow sudo access)
+I've cloned the repo
+ run a venv 
+ I have added the docker-compose.yml from the airflow link
+ 
