@@ -8,4 +8,6 @@ Rancher Desktop is installed (allow max 4 GB memory and 2 CPUs, disable Kubernet
 I've cloned the repo
  run a venv 
  I have added the docker-compose.yml from the airflow link
+ Airflow is up and running on the docker compose provided 
+ 
  
