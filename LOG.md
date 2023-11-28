@@ -8,4 +8,5 @@ Rancher Desktop is installed (allow max 4 GB memory and 2 CPUs, disable Kubernet
 I've cloned the repo
  run a venv 
  I have added the docker-compose.yml from the airflow link
- 
+ I have made a new dir for the airflow and added the docker-compose.yaml file in there
+several attempts to run the airflow container failed, the error is the specifying the user-id  as env , ill continue trying
