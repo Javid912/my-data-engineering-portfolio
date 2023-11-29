@@ -8,4 +8,11 @@ Rancher Desktop is installed (allow max 4 GB memory and 2 CPUs, disable Kubernet
 I've cloned the repo
  run a venv 
  I have added the docker-compose.yml from the airflow link
- 
+ AirFlow is up and running on the port http://localhost:8080/
+Trying to create initial infrastructure in Google Cloud
+I have Create a Service Accoun 
+Generated a JSON Key for the Service Account and saved it 
+
+
+
+
