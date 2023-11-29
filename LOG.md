@@ -12,7 +12,7 @@ I've cloned the repo
 Trying to create initial infrastructure in Google Cloud
 I have Create a Service Accoun 
 Generated a JSON Key for the Service Account and saved it 
-
+I need to make a billing acount in order to creat a GCS bucket and it'n not accepting my vis card.
 
 
 
