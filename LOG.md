@@ -18,4 +18,12 @@ I need to make a billing acount in order to creat a GCS bucket and it'n not acce
 created a AWS S3 bucket to start with for now wheil I'm waiting for the Google billing acout to be created
 I have created a new folder for data and added two files : babak1.csv and babak2.json containing two rows 
 
+I have created a new user in the IAM named Javid912. I have created the Access keys .
+I have started the first dag in the dag0001.py but still checking the airflow doc
+The GCP billing account finaly worked, now I can get the free terial.
+create a GCS bucket called avalin-bucket with location EU-berlin in the new GCP project.
+uplouded the two files : babak1.csv and babak2.json.
+in the IAM Console (UI) add read permission (`roles/storage.objectViewer`) for the service account of the bucket.
+
+
 
