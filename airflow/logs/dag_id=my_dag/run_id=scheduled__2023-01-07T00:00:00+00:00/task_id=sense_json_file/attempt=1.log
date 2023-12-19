@@ -1,0 +1,14 @@
+[2023-12-19T11:22:25.251+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.sense_json_file scheduled__2023-01-07T00:00:00+00:00 [queued]>
+[2023-12-19T11:22:35.169+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.sense_json_file scheduled__2023-01-07T00:00:00+00:00 [queued]>
+[2023-12-19T11:22:35.738+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-12-19T11:22:38.774+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): sense_json_file> on 2023-01-07 00:00:00+00:00
+[2023-12-19T11:22:39.543+0000] {standard_task_runner.py:57} INFO - Started process 183 to run task
+[2023-12-19T11:22:40.114+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'sense_json_file', 'scheduled__2023-01-07T00:00:00+00:00', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/dag0001.py', '--cfg-path', '/tmp/tmpzrfz4pxd']
+[2023-12-19T11:22:40.219+0000] {standard_task_runner.py:85} INFO - Job 60: Subtask sense_json_file
+[2023-12-19T11:23:15.689+0000] {task_command.py:416} INFO - Running <TaskInstance: my_dag.sense_json_file scheduled__2023-01-07T00:00:00+00:00 [running]> on host e1038f319166
+[2023-12-19T11:23:20.668+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Javad' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='sense_json_file' AIRFLOW_CTX_EXECUTION_DATE='2023-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-07T00:00:00+00:00'
+[2023-12-19T11:23:20.996+0000] {logging_mixin.py:154} INFO - Sensing JSON file
+[2023-12-19T11:23:21.003+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-12-19T11:23:21.602+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=sense_json_file, execution_date=20230107T000000, start_date=20231219T112225, end_date=20231219T112321
+[2023-12-19T11:23:22.690+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-19T11:23:24.090+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
