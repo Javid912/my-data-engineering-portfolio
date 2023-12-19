@@ -26,6 +26,5 @@
 - in the IAM Console (UI) add read permission (`roles/storage.objectViewer`) for the service account of the bucket.
 - reviewing the DAG documentation and structure 
 - I was working on the redi project(bookstore data warehause) meanwhile and there is still things to be done to make it presentable.
-
-
+I have successfully created and mounted a dag to the Airflow container and triggered it.
 
