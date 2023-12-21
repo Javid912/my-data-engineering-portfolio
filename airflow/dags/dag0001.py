@@ -5,7 +5,7 @@ from airflow.operators.python_operator import PythonOperator
 
 default_args = {
     'owner': 'Javad',
-    'start_date': datetime(2023, 1, 1),
+    'start_date': datetime(2023, 12, 12),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
@@ -14,7 +14,7 @@ dag = DAG(
     'my_dag',
     default_args=default_args,
     description='My avalin01 DAG',
-    schedule_interval=timedelta(days=1),  # adjust this based on your scheduling needs
+    schedule_interval=timedelta(days=1), 
 )
 
 start_dag = DummyOperator(task_id='start_dag', dag=dag)
