@@ -118,6 +118,16 @@ services:
     command: webserver
     ports:
       - "8080:8080"
+
+    environment:
+      <<: *airflow-common-env
+      GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/keyfile.json
+    volumes:
+      - /Users/javad/Downloads/my-new-gcp-project-406521-c5925f033b0d.json:/opt/airflow/keyfile.json
+      # ... other volumes ...
+
+
+
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
