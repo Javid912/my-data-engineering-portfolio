@@ -27,4 +27,5 @@
 - reviewing the DAG documentation and structure 
 - I was working on the redi project(bookstore data warehause) meanwhile and there is still things to be done to make it presentable.
 - I have successfully created and mounted a dag to the Airflow container and triggered it.
+- using the DAG to sence the files in the GCP bucket ... 
 
