@@ -1,6 +1,9 @@
-from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.sensors import GoogleCloudStorageObjectSensor
+import os
+from datetime import datetime, timedelta
+from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor, \
+    GoogleCloudStorageObjectUpdatedSensor
+from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 
 default_args = {
     'owner': 'Javad',
