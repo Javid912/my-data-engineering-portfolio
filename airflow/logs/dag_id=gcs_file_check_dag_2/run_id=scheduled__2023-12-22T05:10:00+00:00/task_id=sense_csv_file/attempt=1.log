@@ -1,0 +1,14 @@
+[2023-12-30T12:38:38.404+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_file_check_dag_2.sense_csv_file scheduled__2023-12-22T05:10:00+00:00 [queued]>
+[2023-12-30T12:38:38.479+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_file_check_dag_2.sense_csv_file scheduled__2023-12-22T05:10:00+00:00 [queued]>
+[2023-12-30T12:38:38.480+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-12-30T12:38:38.531+0000] {taskinstance.py:1382} INFO - Executing <Task(GCSObjectExistenceSensor): sense_csv_file> on 2023-12-22 05:10:00+00:00
+[2023-12-30T12:38:38.639+0000] {standard_task_runner.py:57} INFO - Started process 122 to run task
+[2023-12-30T12:38:38.819+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_file_check_dag_2', 'sense_csv_file', 'scheduled__2023-12-22T05:10:00+00:00', '--job-id', '150', '--raw', '--subdir', 'DAGS_FOLDER/dag0002.py', '--cfg-path', '/tmp/tmpcg72jcbw']
+[2023-12-30T12:38:38.823+0000] {standard_task_runner.py:85} INFO - Job 150: Subtask sense_csv_file
+[2023-12-30T12:38:39.275+0000] {task_command.py:416} INFO - Running <TaskInstance: gcs_file_check_dag_2.sense_csv_file scheduled__2023-12-22T05:10:00+00:00 [running]> on host e1038f319166
+[2023-12-30T12:38:39.591+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Javad' AIRFLOW_CTX_DAG_ID='gcs_file_check_dag_2' AIRFLOW_CTX_TASK_ID='sense_csv_file' AIRFLOW_CTX_EXECUTION_DATE='2023-12-22T05:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-22T05:10:00+00:00'
+[2023-12-30T12:38:39.609+0000] {gcs.py:94} INFO - Sensor checks existence of : avalin-bucket, avalin-bucket/Data/babak1.csv
+[2023-12-30T12:38:39.654+0000] {taskinstance.py:1542} INFO - Skipping due to soft_fail is set to True.
+[2023-12-30T12:38:39.697+0000] {taskinstance.py:1400} INFO - Marking task as SKIPPED. dag_id=gcs_file_check_dag_2, task_id=sense_csv_file, execution_date=20231222T051000, start_date=20231230T123838, end_date=20231230T123839
+[2023-12-30T12:38:39.863+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-30T12:38:40.070+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -30,4 +30,3 @@
 - using the DAG to sence the files in the GCP bucket ... 
 - I have updated the docker-compose.yaml to set the GOOGLE_APPLICATION_CREDENTIALS environment variable to point to the GCP key file inside the Airflow container.
 - after updadating the dag0002.py finaly it is working.. 
-
