@@ -1,6 +1,7 @@
 from airflow import DAG
 import os
 from datetime import datetime, timedelta
+from airflow.operators.dummy_operator import DummyOperator
 from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor, \
     GoogleCloudStorageObjectUpdatedSensor
 from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
@@ -15,9 +16,12 @@ default_args = {
 dag = DAG(
     'gcs_file_check_dag_2',
     default_args=default_args,
-    description='Second DAG to check GCS file existence',
-    schedule_interval=timedelta(days=1),  
+    description='DAG to check GCS file existence',
+    schedule_interval=timedelta(minutes=5),  
 )
+
+start_dag = DummyOperator(task_id='start_dag', dag=dag)
+end_dag = DummyOperator(task_id='end_dag', dag=dag)
 
 # Define the bucket and file to check
 bucket_name = 'avalin-bucket'
@@ -46,3 +50,4 @@ check_file_2 = GoogleCloudStorageObjectSensor(
     soft_fail=True,
     dag=dag,
 )
+start_dag >> [check_file_1, check_file_2] >> end_dag
