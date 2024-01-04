@@ -8,13 +8,13 @@ from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 
 default_args = {
     'owner': 'Javad',
-    'start_date': datetime(2023, 12, 12),
+    'start_date': datetime(2024, 01, 03),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
 
 dag = DAG(
-    'gcs_file_check_dag_2',
+    'gcs_file_check_dag',
     default_args=default_args,
     description='DAG to check GCS file existence',
     schedule_interval=timedelta(minutes=5),  
