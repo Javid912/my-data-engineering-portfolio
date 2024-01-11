@@ -1,5 +1,5 @@
 ## Project assignments
 
-![Alt Text](Users/javad/my-data-engineering-portfolio/pic01.jpeg)
+![Pic01](Users/javad/my-data-engineering-portfolio/pic01.jpeg)
 
-![Alt Text](Users/javad/my-data-engineering-portfolio/pic02.jpeg)
+![Pic02](Users/javad/my-data-engineering-portfolio/pic02.jpeg)
