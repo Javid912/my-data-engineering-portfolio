@@ -8,7 +8,7 @@ from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 
 default_args = {
     'owner': 'Javad',
-    'start_date': YESTERDAY,
+    'start_date': datetime(2023, 12, 12),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
