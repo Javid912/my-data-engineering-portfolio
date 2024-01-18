@@ -175,6 +175,6 @@ cython_debug/
 #.idea/
 
 venv
-airflow/logs/
-airflow/db/
+airflow/logs
+airflow/db
 airflow/config
