@@ -2,8 +2,7 @@ from airflow import DAG
 import os
 from datetime import datetime, timedelta
 from airflow.operators.dummy_operator import DummyOperator
-from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor, \
-    GoogleCloudStorageObjectUpdatedSensor
+from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor, GoogleCloudStorageObjectUpdatedSensor
 from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 
 default_args = {
@@ -14,10 +13,10 @@ default_args = {
 }
 
 dag = DAG(
-    'gcs_file_check_dag_2',
+    'gcs_file_check_dag_2_v5',
     default_args=default_args,
     description='DAG to check GCS file existence',
-    schedule_interval=timedelta(minutes=5),  
+    schedule_interval="@once",  
 )
 
 start_dag = DummyOperator(task_id='start_dag', dag=dag)
@@ -25,18 +24,19 @@ end_dag = DummyOperator(task_id='end_dag', dag=dag)
 
 # Define the bucket and file to check
 bucket_name = 'avalin-bucket'
-file_name_1 = 'avalin-bucket/Data/babak1.csv'
-file_name_2 = 'avalin-bucket/Data/babak2.json'
+file_name_1 = 'Data/babak1.csv'
+file_name_2 = 'Data/babak2.json'
 
 # Create tasks to check file existence
 check_file_1 = GoogleCloudStorageObjectSensor(
     task_id='sense_csv_file',
     bucket=bucket_name,
     object=file_name_1,
+    google_cloud_conn_id="my-gcs-conn",
     mode='poke',
     poke_interval=600,
     timeout=600,
-    soft_fail=True,
+    soft_fail=False,
     dag=dag,
 )
 
@@ -47,7 +47,11 @@ check_file_2 = GoogleCloudStorageObjectSensor(
     mode='poke',
     poke_interval=600,
     timeout=600,
-    soft_fail=True,
+    soft_fail=False,
     dag=dag,
 )
 start_dag >> [check_file_1, check_file_2] >> end_dag
+
+# Additional logging
+for task in [start_dag, end_dag, check_file_1, check_file_2]:
+    task.doc_md = f"Task documentation: {task.task_id}"
