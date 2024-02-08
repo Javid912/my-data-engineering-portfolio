@@ -14,7 +14,7 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id= 'gcs_file_check_dag',
+    dag_id='gcs_file_check_dag',
     default_args=default_args,
     description='DAG to check GCS file existence',
     schedule_interval=timedelta(minutes=5),  
