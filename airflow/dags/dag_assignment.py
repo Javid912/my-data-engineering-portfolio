@@ -13,7 +13,7 @@ default_args = {
 }
 
 dag = DAG(
-    'gcs_file_check_dag_2_v5',
+    'gcs_file_check_dag_2_v6',
     default_args=default_args,
     description='DAG to check GCS file existence',
     schedule_interval="@once",  
@@ -32,7 +32,6 @@ check_file_1 = GoogleCloudStorageObjectSensor(
     task_id='sense_csv_file',
     bucket=bucket_name,
     object=file_name_1,
-    google_cloud_conn_id="my-gcs-conn",
     mode='poke',
     poke_interval=600,
     timeout=600,
@@ -52,6 +51,3 @@ check_file_2 = GoogleCloudStorageObjectSensor(
 )
 start_dag >> [check_file_1, check_file_2] >> end_dag
 
-# Additional logging
-for task in [start_dag, end_dag, check_file_1, check_file_2]:
-    task.doc_md = f"Task documentation: {task.task_id}"
