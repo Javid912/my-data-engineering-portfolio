@@ -178,3 +178,6 @@ venv
 airflow/logs
 airflow/db
 airflow/config
+
+
+include/gcp/service_account.json
