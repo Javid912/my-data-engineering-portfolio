@@ -5,10 +5,7 @@ from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryDeleteDatasetOperator,
 )
 from airflow.operators.dummy_operator import DummyOperator
-from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
-    GCSToBigQueryOperator,
-    GoogleCloudStorageObjectSensor
-)
+from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from airflow.providers.google.operators.bigquery import BigQueryCheckOperator
 
 
@@ -21,7 +18,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id= 'gcs_file_check_dag_v03',
+    dag_id= 'gcs_file_check_dag_v04',
     default_args=default_args,
     description='DAG to check GCS file existence',
     schedule_interval="@once",  
