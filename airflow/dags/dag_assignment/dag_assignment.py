@@ -64,6 +64,24 @@ with DAG(
         gcp_conn_id='gcp'
     )
 
+# Use the BigQueryCreateEmptyTableOperator to create the table
+    create_table = BigQueryCreateEmptyTableOperator(
+        task_id="create_table",
+        dataset_id="retail",
+        table_id="raw_invoices",
+        gcp_conn_id='gcp',  
+        schema_fields= [
+            {"name": "InvoiceNo", "type": "STRING"},
+            {"name": "StockCode", "type": "STRING"},
+            {"name": "Description", "type": "STRING"},
+            {"name": "Quantity", "type": "INTEGER"},
+            {"name": "InvoiceDate", "type": "STRING"}, 
+            {"name": "UnitPrice", "type": "FLOAT"},
+            {"name": "CustomerID", "type": "FLOAT"},  
+            {"name": "Country", "type": "STRING"}
+        ], 
+    )
+
    # bq_check_running_average = BigQueryCheckOperator(
     #   sql="./sql/query_check_running_average.sql"
 
