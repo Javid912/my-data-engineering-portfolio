@@ -37,6 +37,15 @@ with DAG(
     bucket_csv = 'avalin-bucket'
     file_csv_1 = 'avalin-bucket/Data/babak1.csv'
 
+    upload_csv_to_gcs = LocalFilesystemToGCSOperator(
+        task_id='upload_csv_to_gcs',
+        src='include/dataset/online_retail.csv',
+        dst='raw/online_retail.csv',
+        bucket='javadsatoungar_online_retail',
+        gcp_conn_id='gcp',
+        mime_type='text/csv',
+    )
+
     # Create tasks to check file existence
     check_file_csv_1 = GoogleCloudStorageObjectSensor(
         task_id='sense_csv_file',
