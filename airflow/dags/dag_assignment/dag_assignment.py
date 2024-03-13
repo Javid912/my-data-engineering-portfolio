@@ -58,15 +58,10 @@ with DAG(
     )
 
 
-    gcs_to_bq_file_1 = GCSToBigQueryOperator(
-    task_id='gcs_to_bq_scv_1',
-    bucket=bucket_csv, 
-    source_objects=['avalin-bucket/Data/babak1.csv'],
-    destination_project_dataset_table='my-new-gcp-project-406521.your_csv1.table_1', 
-    create_disposition='CREATE_IF_NEEDED', 
-    write_disposition='WRITE_TRUNCATE',
-    #google_cloud_storage_conn_id='gcp',
-    dag=dag,
+    creat_retile_dataset = BigQueryCreateEmptyDatasetOperator(
+        task_id = 'creat_retile_dataset',
+        dataset_id = 'retail',
+        gcp_conn_id='gcp'
     )
 
    # bq_check_running_average = BigQueryCheckOperator(
