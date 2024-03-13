@@ -1,24 +1,30 @@
+
 from airflow import DAG
-from datetime import datetime, timedelta
-from airflow.providers.google.cloud.operators.bigquery import (
-    BigQueryCreateEmptyDatasetOperator,
-    BigQueryDeleteDatasetOperator,
-)
+from airflow.decorators import dag, task
+from datetime import datetime
+
+from airflow.providers.google.cloud.transfers.local_to_gcs import LocalFilesystemToGCSOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyDatasetOperator
+from airflow import models
+from airflow.contrib.operators.bigquery_operator import BigQueryOperator
+from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor
+
+from airflow.providers.google.cloud.transfers.local_to_gcs import LocalFilesystemToGCSOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyDatasetOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryDeleteDatasetOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
-from airflow.providers.google.operators.bigquery import BigQueryCheckOperator
-
+from airflow.contrib.operators.bigquery_check_operator import BigQueryCheckOperator
 
 default_args = {
     'owner': 'Javad',
     'start_date': datetime(2024, 1, 1),
     'catchup': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=5),
-}
+    }
 
 with DAG(
-    dag_id= 'gcs_file_check_dag_v04',
+    dag_id= 'gcs_file_check_dag_v05',
     default_args=default_args,
     description='DAG to check GCS file existence',
     schedule_interval="@once",  
@@ -46,18 +52,18 @@ with DAG(
     gcs_to_bq_file_1 = GCSToBigQueryOperator(
     task_id='gcs_to_bq_scv_1',
     bucket=bucket_csv, 
-    source_objects=['avalin-bucket/Data/babak1.csv'], 
+    source_objects=['avalin-bucket/Data/babak1.csv'],
+    destination_project_dataset_table='my-new-gcp-project-406521.your_csv1.table_1', 
     create_disposition='CREATE_IF_NEEDED', 
     write_disposition='WRITE_TRUNCATE',
-    bigquery_conn_id='bigquery_default',  # Connection ID to BigQuery in Airflow connections
-    google_cloud_storage_conn_id='gcp',  # Connection ID to GCS in Airflow connections
+    #google_cloud_storage_conn_id='gcp',
     dag=dag,
     )
 
-    bq_check_running_average = BigQueryCheckOperator(
-       sql="./sql/query_check_running_average.sql"
+   # bq_check_running_average = BigQueryCheckOperator(
+    #   sql="./sql/query_check_running_average.sql"
 
-    )
+    #)
 
-
-    start_dag >> check_file_csv_1 >> gcs_to_bq_file_1 >> bq_check_running_average >> end_dag
+    start_dag >> check_file_csv_1 >> gcs_to_bq_file_1 >> end_dag
+    #start_dag >> check_file_csv_1 >> gcs_to_bq_file_1 >> bq_check_running_average >> end_dag
