@@ -82,19 +82,6 @@ with DAG(
         ], 
     )
 
-    csv_gcp_to_bq = GCSToBigQueryOperator(
-    task_id='csv_gcp_to_bq',
-    bucket='javadsatoungar_online_retail', 
-    source_objects=['raw/online_retail.csv'],
-    destination_project_dataset_table='my-new-gcp-project-406521.retail.raw_invoices', 
-    create_disposition='CREATE_IF_NEEDED', 
-    write_disposition='WRITE_TRUNCATE',
-    gcp_conn_id='gcp',
-    field_delimiter=",",
-    autodetect=True,
-    dag=dag,
-    )
-
     gcs_to_raw = aql.load_file(
         task_id='gcs_to_raw',
         input_file=File(
