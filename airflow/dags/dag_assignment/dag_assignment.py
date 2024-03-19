@@ -105,5 +105,5 @@ with DAG(
         sql="./sql/query_check_running_average.sql"
 
         )
-
+#Task is tested and it is working
 start_dag >> check_file_csv_1 >> gcs_to_bq_file_1 >> bq_check_running_average >> end_dag
