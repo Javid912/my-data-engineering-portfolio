@@ -28,11 +28,14 @@ I've set up my entire Airflow environment using Docker containers. This makes it
 
 ## Work in Progress
 
-This repository is a work in progress, and I'm actively refining and scaling the ETL processes. Here's what I'm currently focusing on:
+I am actively scaling the project to incorporate more advanced DAG (Directed Acyclic Graph) operators and database connectors. My aim is to extend it into a fully automated functional end-to-end ETL/ELT (Extract, Transform, Load / Extract, Load, Transform) pipeline. Specifically, I'm focusing on:
 
-- **Scaling:** Optimizing the ETL workflows to handle large volumes of data efficiently.
-- **Error Handling:** Implementing robust error handling mechanisms to ensure data integrity and reliability.
-- **Monitoring and Logging:** Setting up monitoring and logging solutions to track the progress of workflows and troubleshoot issues effectively.
+- **Advanced DAG Operators:** Integrating additional Airflow operators to handle complex workflow orchestration and task dependencies effectively.
+- **Database Connectors:** Expanding support for connecting to different types of databases, enabling seamless data integration and synchronization.
+- **Fully Automated Pipeline:** Automating the entire data pipeline from data ingestion to transformation and loading, minimizing manual intervention and optimizing efficiency.
+
+Stay tuned for updates as I continue to enhance and refine the project!
+
 
 ## Contributions
 
