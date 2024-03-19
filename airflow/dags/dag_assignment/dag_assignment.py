@@ -99,10 +99,11 @@ with DAG(
 #task is tested and it is working, to use the GCSToBigQueryOperator there was problem importing the InvoiceDate
 #becuse of bigquerys date data format requerments but the astro aql could do it without needing any data transformation 
 
-   bq_check_running_average = BigQueryCheckOperator (
-       task_id= "bq_check_running_average"
-       sql="./sql/query_check_running_average.sql"
+    bq_check_running_average = BigQueryCheckOperator (
+        task_id= "bq_check_running_average",
+        conn_id='gcp',
+        sql="./sql/query_check_running_average.sql"
 
-    )
+        )
 
 start_dag >> check_file_csv_1 >> gcs_to_bq_file_1 >> bq_check_running_average >> end_dag
